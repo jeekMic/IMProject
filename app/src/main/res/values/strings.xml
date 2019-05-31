@@ -1,4 +1,4 @@
-<resources>
+<resources tools:ignore="MissingTranslation" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">IM</string>
     <string name="user_name_error">用户名不合法，3到20位，首字母必须是英文字符</string>
     <string name="password_error">密码不合法，3到20位数字</string>

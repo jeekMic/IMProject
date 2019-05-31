@@ -1,15 +1,20 @@
 package app.bxvip.com.mykotlin
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import org.jetbrains.anko.progressDialog
 
 abstract  class BaseActivity : AppCompatActivity(){
     val progressDialog by lazy {
         ProgressDialog(this)
+    }
+    val inputMethodManager by lazy {
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +36,9 @@ abstract  class BaseActivity : AppCompatActivity(){
 
     fun dismissProgress(){
         progressDialog.dismiss()
+    }
+
+    fun dideSoftKeyBord(){
+        inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken,0)
     }
 }
