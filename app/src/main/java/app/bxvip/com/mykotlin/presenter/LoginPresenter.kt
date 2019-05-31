@@ -1,5 +1,6 @@
 package app.bxvip.com.mykotlin.presenter
 
+import app.bxvip.com.mykotlin.adapter.EMCallBackAdapter
 import app.bxvip.com.mykotlin.contract.LoginContract
 import com.hyphenate.EMCallBack
 import com.hyphenate.chat.EMClient
@@ -21,17 +22,19 @@ class LoginPresenter(val view:LoginContract.View) :LoginContract.presenter{
     }
 
     private fun loginEaseMob(userName: String, password: String) {
-        EMClient.getInstance().login(userName,password,object :EMCallBack{
+        EMClient.getInstance().login(userName,password,object : EMCallBackAdapter() {
+            //在子线程中回调的
             override fun onSuccess() {
-                view.onLoginSuccess()
-            }
-
-            override fun onProgress(p0: Int, p1: String?) {
-
+                super.onSuccess()
+                EMClient.getInstance().groupManager().loadAllGroups()
+                EMClient.getInstance().chatManager().loadAllConversations()
+                //在子线程中通知UI线程
+                uiThread {  view.onLoginSuccess() }
             }
 
             override fun onError(p0: Int, p1: String?) {
-                view.onLoginFiald()
+                super.onError(p0, p1)
+                uiThread {  view.onLoginFiald() }
             }
 
         })
