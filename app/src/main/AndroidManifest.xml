@@ -56,6 +56,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <provider
+                android:name="cn.bmob.v3.util.BmobContentProvider"
+                android:authorities="app.bxvip.com.mykotlin">
+        </provider>
     </application>
 
 </manifest>

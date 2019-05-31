@@ -1,6 +1,7 @@
 package app.bxvip.com.mykotlin
 
 import android.app.Application
+import cn.bmob.v3.Bmob
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMOptions
 
@@ -18,5 +19,7 @@ class IMApplication :Application(){
         EMClient.getInstance().init(applicationContext, options)
         //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
         EMClient.getInstance().setDebugMode(BuildConfig.DEBUG)
+        //第一：默认初始化
+        Bmob.initialize(this, "f580b91ca19b60934406f4ac5a54b4a5")
     }
 }
