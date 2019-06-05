@@ -57,6 +57,7 @@
         </activity>
         <activity android:name="app.bxvip.com.mykotlin.ui.activity.LoginActivity"/>
         <activity android:name="app.bxvip.com.mykotlin.ui.activity.RegisterActivity"/>
+        <activity android:name=".ui.activity.ChatActivity"/>
         <provider
                 android:name="cn.bmob.v3.util.BmobContentProvider"
                 android:authorities="app.bxvip.com.mykotlin">

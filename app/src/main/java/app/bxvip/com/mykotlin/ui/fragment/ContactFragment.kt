@@ -5,8 +5,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import app.bxvip.com.mykotlin.R
 import app.bxvip.com.mykotlin.adapter.ContactListAdapter
+import app.bxvip.com.mykotlin.adapter.EMContactListenerAdapter
 import app.bxvip.com.mykotlin.contract.ContactContract
 import app.bxvip.com.mykotlin.presenter.ContactPresenter
+import com.hyphenate.chat.EMClient
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.header.*
 import org.jetbrains.anko.toast
@@ -42,6 +44,14 @@ class ContactFragment : BaseFragment() , ContactContract.View{
             layoutManager = LinearLayoutManager(context)
             adapter = ContactListAdapter(context,presenter.contactListItems)
         }
+        EMClient.getInstance().contactManager().setContactListener(object: EMContactListenerAdapter(){
+            override fun onContactDeleted(p0: String?) {
+                //重新获取联系人数据
+                presenter.loadConracts()
+            }
+        })
+
+
         //初始化的时候加载数据
         presenter.loadConracts()
     }

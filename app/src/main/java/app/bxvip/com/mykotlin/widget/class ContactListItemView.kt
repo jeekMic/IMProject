@@ -16,8 +16,16 @@ class ContactListItemView(context: Context?, attrs: AttributeSet?=null) : Relati
         View.inflate(context, R.layout.view_contact_item,this)
     }
     fun bindView(contactListItem: ContactListItem) {
-        firstLetter.text = contactListItem.firstLetter.toString()
-        userName.text = contactListItem.username
+        println("===========")
+        println(contactListItem.showFirstLetter)
+       if (contactListItem.showFirstLetter){
+           firstLetter.text = contactListItem.firstLetter.toString()
+           userName.text = contactListItem.username
+           firstLetter.visibility = View.VISIBLE
+       }else{
+           firstLetter.visibility = GONE
+           userName.text = contactListItem.username
+       }
     }
 
 
