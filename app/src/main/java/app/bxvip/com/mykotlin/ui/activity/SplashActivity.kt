@@ -1,6 +1,7 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.ui.activity
 
 import android.os.Handler
+import app.bxvip.com.mykotlin.R
 import app.bxvip.com.mykotlin.contract.SplashContract
 import app.bxvip.com.mykotlin.presenter.SplashPresenter
 import org.jetbrains.anko.startActivity
@@ -20,7 +21,7 @@ class SplashActivity: BaseActivity(), SplashContract.View {
                 startActivity<LoginActivity>()
                 finish()
 
-        },DELAY)
+        }, DELAY)
     }
 
     override fun init() {

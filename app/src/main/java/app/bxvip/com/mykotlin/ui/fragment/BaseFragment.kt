@@ -1,4 +1,4 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

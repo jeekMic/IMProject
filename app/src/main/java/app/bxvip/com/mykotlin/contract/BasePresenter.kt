@@ -14,6 +14,7 @@ interface BasePresenter {
     //BasePresenter这里在BasePresenter中定义后， 在后面的子类中可以随意的切换线程进行UI的操作
     fun uiThread(f: ()->Unit){
         handler.post { f() }
+
     }
 
 }

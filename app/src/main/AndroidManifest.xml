@@ -18,7 +18,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
-            android:name=".IMApplication"
+            android:name=".app.IMApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -45,9 +45,9 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <activity android:name=".MainActivity">
+        <activity android:name="app.bxvip.com.mykotlin.ui.activity.MainActivity">
         </activity>
-        <activity android:name=".SplashActivity"
+        <activity android:name="app.bxvip.com.mykotlin.ui.activity.SplashActivity"
                   android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -55,8 +55,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name="app.bxvip.com.mykotlin.ui.activity.LoginActivity"/>
+        <activity android:name="app.bxvip.com.mykotlin.ui.activity.RegisterActivity"/>
         <provider
                 android:name="cn.bmob.v3.util.BmobContentProvider"
                 android:authorities="app.bxvip.com.mykotlin">

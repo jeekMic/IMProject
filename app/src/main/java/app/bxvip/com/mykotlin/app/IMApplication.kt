@@ -1,6 +1,7 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.app
 
 import android.app.Application
+import app.bxvip.com.mykotlin.BuildConfig
 import cn.bmob.v3.Bmob
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMOptions

@@ -46,6 +46,10 @@ class RegisterPresenter(val view:RegisterContact.View) : RegisterContact.Present
                     //注册到环信
                     registerEaseMob(username,password)
                 }else{
+                    //因为用户名一样而注册错误的代码是202
+                    if(p1.errorCode == 202){
+                        view.onUserExist()
+                    }
                     //注册失败
                     view.onRegisterFialed()
                     registerEaseMob(username,password)
@@ -72,6 +76,5 @@ class RegisterPresenter(val view:RegisterContact.View) : RegisterContact.Present
                     }
                 }
              }
-
     }
 }

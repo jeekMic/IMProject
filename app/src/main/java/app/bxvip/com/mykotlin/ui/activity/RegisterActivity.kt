@@ -1,13 +1,18 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.ui.activity
 
-import android.view.KeyEvent
-import android.widget.TextView
+import app.bxvip.com.mykotlin.R
 import app.bxvip.com.mykotlin.contract.RegisterContact
 import app.bxvip.com.mykotlin.presenter.RegisterPresenter
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 
 class RegisterActivity: BaseActivity() , RegisterContact.View{
+    //同一个用户注册的时候 隐藏进度条 且弹出对话框
+    override fun onUserExist() {
+        dismissProgress()
+        toast(R.string.user_already_exist)
+    }
+
     val presenter = RegisterPresenter(this)
 
     override fun init() {

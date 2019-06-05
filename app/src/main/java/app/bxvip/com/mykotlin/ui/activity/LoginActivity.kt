@@ -1,17 +1,14 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.ui.activity
 
 import android.Manifest
-import android.app.ProgressDialog
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
-import android.view.KeyEvent
-import android.widget.TextView
+import app.bxvip.com.mykotlin.R
 import app.bxvip.com.mykotlin.contract.LoginContract
 import app.bxvip.com.mykotlin.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.password
 import kotlinx.android.synthetic.main.activity_login.userName
-import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 

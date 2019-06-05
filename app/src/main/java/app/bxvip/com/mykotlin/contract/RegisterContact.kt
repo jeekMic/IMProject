@@ -11,5 +11,6 @@ interface RegisterContact {
         fun onStartRegister()
         fun onRegisterSuccess()
         fun onRegisterFialed()
+        fun onUserExist()
     }
 }

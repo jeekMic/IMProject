@@ -1,13 +1,10 @@
-package app.bxvip.com.mykotlin
+package app.bxvip.com.mykotlin.ui.activity
 
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import org.jetbrains.anko.progressDialog
 
 abstract  class BaseActivity : AppCompatActivity(){
     val progressDialog by lazy {
