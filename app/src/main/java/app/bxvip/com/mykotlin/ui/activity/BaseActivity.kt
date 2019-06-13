@@ -2,11 +2,15 @@ package app.bxvip.com.mykotlin.ui.activity
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 
 abstract  class BaseActivity : AppCompatActivity(){
+
     val progressDialog by lazy {
         ProgressDialog(this)
     }
@@ -35,7 +39,7 @@ abstract  class BaseActivity : AppCompatActivity(){
         progressDialog.dismiss()
     }
 
-    fun dideSoftKeyBord(){
+    fun hideSoftKeyBord(){
         inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken,0)
     }
 }

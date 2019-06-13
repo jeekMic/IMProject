@@ -5,10 +5,16 @@ import app.bxvip.com.mykotlin.BuildConfig
 import cn.bmob.v3.Bmob
 import com.hyphenate.chat.EMClient
 import com.hyphenate.chat.EMOptions
+import java.time.Instant
 
 class IMApplication :Application(){
+    companion object{
+        //后面再来初始化
+        lateinit var instant:IMApplication
+    }
     override fun onCreate() {
         super.onCreate()
+        instant = this
         val options = EMOptions()
         // 默认添加好友时，是不需要验证的，改成需要验证
         //options.setAcceptInvitationAlways(false)

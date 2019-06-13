@@ -30,7 +30,7 @@ class LoginActivity: BaseActivity() ,LoginContract.View{
     }
     fun login(){
         //隐藏软件盘
-        dideSoftKeyBord()
+        hideSoftKeyBord()
         //查看是否有动态分配的权限
         if(hasWriteExtraStoragePermission()){
             val userNameString = userName.text.trim().toString()

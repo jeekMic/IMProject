@@ -11,6 +11,7 @@ import app.bxvip.com.mykotlin.R
 import org.jetbrains.anko.sp
 
 class SliderBar(context: Context?, attrs:AttributeSet?=null): View(context, attrs) {
+    var onSectionChangeListener: OnSectionChangeListener? = null
     var sectionHeight = 0f
     var textbaseLine = 0f
     var paint = Paint()
@@ -54,8 +55,21 @@ class SliderBar(context: Context?, attrs:AttributeSet?=null): View(context, attr
                 //找到点击的字母
                 val index = getTouchIndex(event)
                 val firstLetter = SECTIONS[index]
+                println(firstLetter)
+                onSectionChangeListener?.onSectionChange(firstLetter)
             }
-            MotionEvent.ACTION_UP-> setBackgroundColor(Color.TRANSPARENT)
+            MotionEvent.ACTION_MOVE->{
+                setBackgroundResource(R.drawable.bg_slide_bar)
+                //找到点击的字母
+                val index = getTouchIndex(event)
+                val firstLetter = SECTIONS[index]
+                println(firstLetter)
+                onSectionChangeListener?.onSectionChange(firstLetter)
+            }
+            MotionEvent.ACTION_UP-> {
+                setBackgroundColor(Color.TRANSPARENT)
+                onSectionChangeListener?.onSliderFinish()
+            }
         }
         return true //消费事件
     }
@@ -69,5 +83,10 @@ class SliderBar(context: Context?, attrs:AttributeSet?=null): View(context, attr
             index = (SECTIONS.size-1).toFloat()
         }
         return index.toInt()
+    }
+
+    interface OnSectionChangeListener {
+        fun onSectionChange(firstLetter:String)
+        fun onSliderFinish()//滑动结束的回调
     }
 }
